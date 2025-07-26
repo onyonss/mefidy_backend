@@ -2,11 +2,15 @@ from pathlib import Path
 from dotenv import load_dotenv
 
 load_dotenv()
+import os
+
+ALLOWED_HOSTS = os.environ.get('ALLOWED_HOSTS', 'localhost').split(',')
+
+DEBUG = os.environ.get('DEBUG', 'False') == 'True'
 
 BASE_DIR = Path(__file__).resolve().parent.parent
 
-SECRET_KEY = 'django-insecure-^7o_1)_@9b8f^0ewqo2m9cvw+feyh&gwe95lg_08$t0tl$0hk#'
-DEBUG = False 
+SECRET_KEY = os.environ.get('SECRET_KEY', 'fallback-secret-key')
 
 INSTALLED_APPS = [
     'django.contrib.admin',
@@ -118,7 +122,4 @@ LOGGING = {
 
 CURRENT_ACADEMIC_YEAR = "2024-2025"
 
-import os
 
-ALLOWED_HOSTS = ['mefidy-backend.onrender.com']
-DEBUG = os.getenv('DJANGO_DEBUG', 'False') == 'True'
