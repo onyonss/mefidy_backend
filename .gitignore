@@ -1,0 +1,12 @@
+# Python virtual environment
+backend/Include/
+backend/Lib/
+backend/Scripts/
+backend/pyvenv.cfg
+
+# Sensitive files
+backend/.env
+
+# Python temporary files
+backend/*.pyc
+backend/__pycache__/
